@@ -20,18 +20,9 @@ bower_components
 projectFilesBackup
 
 .DS_Store
-
-# vim-related
-[._]*.s[a-w][a-z]
-[._]s[a-w][a-z]
-*.un~
-Session.vim
-.netrwhist
-.vimrc
 *~
-
-# TernJS
-.tern-project
+*.swp
+*.swo
 
 # Ghost DB file
 *.db
@@ -41,22 +32,13 @@ Session.vim
 .dist
 .tmp
 
-
 /core/clientold/tpl/hbs-tpl.js
-/core/clientold/assets/css
-/core/clientold/assets/fonts
-/core/clientold/assets/vendor
-/core/client/assets/css
-!/core/client/assets/css/ember-hacks.css
-/core/client/assets/fonts
 /core/server/data/export/exported*
 /docs
 /_site
 /content/tmp/*
 /content/data/*
 /content/apps/**/*
-/content/themes/**/*
-/content/images/**/*
 !/content/themes/casper/**
 !/README.md
 
@@ -65,11 +47,6 @@ CHANGELOG.md
 
 # Casper generated files
 /core/test/functional/*.png
-
-config.js
-
-# Built asset files
-/core/built
 
 # Coverage reports
 coverage.html
