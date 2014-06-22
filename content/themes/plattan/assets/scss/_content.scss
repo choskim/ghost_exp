@@ -1,0 +1,250 @@
+/**
+ * SCSS template for the sites content area
+ *
+ * @package Ghost
+ * @subpackage Plattan
+ * @since Plattan 1.0
+ */
+
+.page-content {
+    @include animation(bounce-in-up .7s ease);
+    @include animation-fill-mode(both);
+    @include animation-delay(.8s);
+    @include span-columns(12);
+    overflow: hidden;
+
+    @include media($medium) {
+        @include span-columns(7);
+        @include shift(5);
+    }
+
+    @include media($large) {
+        @include span-columns(8);
+        @include shift(4);
+    }
+}
+
+.home article.post .post-thumbnail {
+	@include rem(margin-bottom, -1.5);
+	height: 16.39em;
+	overflow: hidden;
+
+	.image {
+	    height: 100%;
+	    width: 100%;
+	    background-position: center center;
+	    background-size: cover;
+	}
+}
+
+article.post {
+    padding: 0 0 3em 0;
+    position: relative;
+    overflow: hidden;
+    font-size: 1.1em;
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    @include icon {
+        background: shade($light,15%);
+        text-align: center;
+        display: block;
+        color: #fff;
+        font-size: 1.2em;
+        line-height: 2em;
+        width: 2em;
+    	position: absolute;
+    	top: 0;
+    	right: 0;
+
+        @include media($medium) {
+            margin: 0;
+            left: 0;
+            right: auto;
+            font-size: 1.6em;
+        }
+
+        @include media($xlarge) {
+            font-size: 2em;
+        }
+    }
+}
+
+.home-template article.post.featured,
+.archive-template article.post.featured {
+    background: shade($light,5%);
+
+    @include icon('before', false, 'pin');
+
+    .post-meta {
+    	border-color: tint($dark,85%);
+    }
+}
+
+.post-template .post-content :first-child img,
+.post-template .post-content :first-child .fluid-width-video-wrapper,
+.post-template .post-content>img:first-child,
+.post-template .post-content>.fluid-width-video-wrapper:first-child,
+.home-template .post-content :first-child img,
+.home-template .post-content :first-child .fluid-width-video-wrapper,
+.home-template .post-content>img:first-child,
+.home-template .post-content>.fluid-width-video-wrapper:first-child {
+	display:none;
+}
+
+article.post .content-wrapper {
+    @include rem(max-width, 40);
+    margin-left: 5%;
+    margin-right: 5%;
+    position:relative;
+
+    @include media($medium) {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+
+    @include media($large) {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
+article.post .post-title {
+    margin-top: 1.6em;
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+
+    @include media($medium) {
+        margin-top: 1em;
+        font-size: 2.6em;
+    }
+}
+
+article.post .read-more {
+    @include inline-block;
+    @include transition(background 0.2s ease-in-out);
+    margin-top: 1em;
+    background: $color-1;
+    padding: 0.65em 1.25em;
+    color: #fff;
+    border-radius: 0.25em;
+
+    &:hover {
+        background: shade($color-1, 10%);
+    }
+}
+
+article.post .post-meta {
+    font-style: italic;
+    display: inline-block;
+    border-top: 0.25em solid darken($light, 4%);
+    padding-top: 0.5em;
+    min-width: 15em;
+    margin-bottom: 1em;
+}
+
+article.page .post-meta {
+    margin-bottom: 0;
+}
+
+.post-title {
+    @extend .h1;
+
+    a { color: $text; }
+}
+
+
+.post-meta .post-tags .post-tag {
+    a {
+    	text-decoration: none;
+    }
+}
+
+.edit-link a {
+    color: $color-1;
+    font-family: $headings;
+    display: block;
+    margin: -1em 0 1em;
+}
+
+.pagination {
+    @include clearfix;
+    margin: 1em 5%;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.page-numbers {
+    @extend %clearul;
+    margin-top: 2em;
+
+    li {
+        /*background: shade($color-2, 10%);*/
+        font-family: $headings;
+        font-size: 1.2em;
+        height: 3em;
+        width: 3em;
+        line-height: 3em;
+        text-align: center;
+    }
+
+    li.page-text {
+    	width: auto;
+    	padding: 0 1.5em;
+    }
+
+    a {
+        @include transition(all .25s ease-in-out);
+
+        &:hover {
+            background: tint($color-2, 20%);
+        }
+    }
+}
+
+.social {
+	@include clearfix;
+}
+
+.social a {
+	@include clearfix;
+	background: lighten($color-2, 30%);
+	display:block;
+	float:left;
+	margin-right:10px;
+	color: $light;
+	line-height:60px;
+	padding:0 10px 0 0;
+	margin-top:10px;
+}
+
+.social a span.icon {
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-transform: none;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    font-family: 'northemes-icons';
+    background: tint($color-2,20%);
+    display: block;
+    width: 2.2em;
+    height: 2.2em;
+    line-height: 2.2em;
+    text-align: center;
+    color: #fff;
+
+	@include transition(background 0.2s ease-in-out);
+	float: left;
+	margin-right:10px;
+}
+
+.comments {
+	margin-top: 4em;
+}
+

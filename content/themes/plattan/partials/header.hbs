@@ -1,0 +1,36 @@
+<header class="sidebar-header">
+
+    <div class="first">
+        <div class="header-content">
+            <a class="blog-title" href="{{@blog.url}}" title="{{@blog.title}}">
+                {{@blog.title}}
+                <span class="byline">{{@blog.description}}</span>
+            </a>
+            <div class="social-icons">
+                <a href="https://github.com/choskim" title="Cho S. Kim on Github" target="_blank">&#x6E;</a>
+                <a href="https://www.linkedin.com/in/choskim" title="Cho S. Kim on LinkedIn" target="_blank">&#x6D;</a>
+                <a href="http://twitter.com/@choskim" title="Cho S. Kim on Twitter" target="_blank">&#x6b;</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="second">
+        <a class="expander" title="Show menu">
+        	<div class="expand"><span class="icon"></span>Menu</div>
+        	<div class="collapse"><span class="icon collapse"></span>Collapse</div>
+        </a>
+		<!--div class="cover-wrapper">
+			<img class="cover" src="{{@blog.cover}}" alt="" title="" />
+		</div-->
+        <ul class="main-menu">
+            <li class="menu-item">
+                <a href="{{@blog.url}}">Home</a>
+                <a href="/tag/personal/">About Me</a>
+                <a href="/tag/javascript/">JavaScript</a>
+                <a href="/tag/data-structures/">Data Structures</a>
+                <a href="/tag/installation/">Installation</a>
+            </li>
+        </ul>
+    </div>
+
+</header>

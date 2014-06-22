@@ -1,0 +1,380 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Northemes Plattan theme Documentation</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+
+		<h3 class="center alt">&ldquo;Plattan&rdquo; Documentation by <a href="http://www.northemes.com">northemes.com</a> (<a href="http://twitter.com/danielauener">@danielauener</a> &amp; <a href="http://twitter.com/pixelcrook">@pixelcrook</a>) - v1.0</h3>
+
+		<hr>
+
+		<h1 class="center">&ldquo;Plattan&rdquo;</h1>
+
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 2014-02-14<br>
+					By: northemes.com<br>
+					Email: <a href="mailto:info@northemes.com">info@northemes.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->
+
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing our theme. If you have any questions that are beyond the scope of this help file, please feel free to email via our user page contact form <a href="http://themeforest.net/user/northemes">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+
+		<hr>
+
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#design">Design</a></li>
+			<li><a href="#post-formats">Featured post, images and Post formats</a></li>
+			<li><a href="#customization">Customization</a></li>
+			<li><a href="#htmlStructure">HTML Structure</a></li>
+			<li><a href="#scssFiles">SCSS Files and Structure</a></li>
+			<li><a href="#iconFont">Icon font</a></li>
+			<li><a href="#grunt">Use grunt</a></li>
+			<li><a href="#credits">Sources and Credits</a></li>
+		</ol>
+
+		<hr>
+
+		<h3 id="design"><strong>A) Design</strong> - <a href="#toc">top</a></h3>
+		<p>
+			The focus of this theme is content, so our goal was a responsive
+			design without any noise or disturbing elements. In desktop view
+			there is no header or footer. The theme is divided in a fixed column
+			to the left, which contains some general elements like title, the
+			authors social profile pages and a navigation. The second column on
+			the right holds the currently displayed post or post-list.
+		</p>
+		<p>
+			Be careful with adding too much content (like a long menu), to the
+			left-column. Because it is fixed, there will be no scroll on low
+			screens with, say 1200x786 pixels or similar.
+		</p>
+		<p>
+			On smaller screens the left column becomes a minimized header with
+			a hidden menu.
+		</p>
+
+		<hr>
+
+		<h3 id="post-formats"><strong>B) Featured post, images and Post formats</strong> - <a href="#toc">top</a></h3>
+			<p>
+				Ghost 0.4 gave us featured posts, and now we are giving them to
+				you. Make a post featured in the admin area, and it will look
+				like this in your blog:
+				<br />
+				<div style="text-align:center;">
+					<img src="assets/images/featured.png" width="500" alt="Featured posts" /><br />
+				</div>
+			</p>
+
+			<p>
+				"Plattan" supports post thumbnails as well. Just be sure the
+				image i the absolutely first thing in your post, then it will
+				show up in the post list and in the post, as featured image.
+				<br />
+				<div style="text-align:center;">
+					<img src="assets/images/featured-img.png" width="500" alt="Featured images" /><br />
+				</div>
+			</p>
+
+			<p>
+				When we build "Plattan" we wanted to give you a little extra:
+				Post formats. As Ghost doesn't have native support for them, we
+				made use of the tag-functionallity. So to get the post-formats,
+				you just give your post one of the following tags:<br /><br />
+
+				<em><b>format-tweet, format-quote, format-link</b></em>
+
+				They look ike this:
+
+				<div style="text-align:center;">
+					<img src="assets/images/customize2.png" width="500" alt="Post formats" /><br />
+				</div><br />
+
+				The quote-format is somewhat special, the title of the post gets
+				printed under the quote, as the source of the quote. The tweet-format
+				just hides the title.
+			</p>
+		<hr>
+
+		<h3 id="customization"><strong>C) Customization</strong> - <a href="#toc">top</a></h3>
+
+		<p>
+			<div style="text-align:center;">
+				<img src="assets/images/customize3.png" width="700" alt="Schmes" /><br />
+			</div><br />
+
+			"Plattan" comes with 6 color schemes. In the theme demo you can
+			test all color schemes with the color picker. On your own blog you
+			might want to choose one of the schemes pemanently. In the downloaded
+			theme there is no color picker, unless you use the file
+			<em>assets/js/scripts-with-cp.min.js</em> as yuor main js file.
+			To permanently set a color scheme, you make one of the
+			<em>assets/css/style-x.css</em> to your main css file: <em>assets/css/style.css</em>.
+			Here are all possible schemes:
+		</p>
+		<p><img src="assets/images/scheme-0.png" /><br /><i>plattan/css/style-0.css</i></p>
+		<p><img src="assets/images/scheme-1.png" /><br /><i>plattan/css/style-1.css</i></p>
+		<p><img src="assets/images/scheme-2.png" /><br /><i>plattan/css/style-2.css</i></p>
+		<p><img src="assets/images/scheme-3.png" /><br /><i>plattan/css/style-3.css</i></p>
+		<p><img src="assets/images/scheme-4.png" /><br /><i>plattan/css/style-4.css</i></p>
+		<p><img src="assets/images/scheme-5.png" /><br /><i>plattan/css/style-5.css</i></p>
+
+		<p>
+			"Plattan" gives you a couple of more possibilities for customization. Of
+			course there is the blog title and description. You change them via
+			the Ghost admin interface. Then there are the social icons. We've
+			layoutet for a maximum of four icons, which are placed under the
+			title and description. To change them, open the file at
+			<em>/content/themes/plattan/partials/header.hbs</em>. Edit the links
+			in the social-icons-div.
+		</p>
+
+		<pre>
+	&lt;div class="social-icons">
+		&lt;a href="http://twitter.com/northemes" title="Northemes on twitter">&#x6b;&lt;/a>
+		&lt;a href="http://facebook.com" title="Facebook">&#x6a;&lt;/a>
+		&lt;a href="http://stackoverflow.com" title="stackoverflow">&#x73;&lt;/a>
+		&lt;a href="{{@blog.url}}/rss/" title="Northemes on twitter">&#x76;&lt;/a>
+	&lt;/div>
+		</pre>
+
+		<p>
+			<img src="assets/images/customize1.png" alt="Customize social profiles" /><br /><br />
+
+			The next thing to adjust would be the menu. Since "Plattan" is fully
+			Ghost 0.4 compatible it has a template for static pages, which you
+			might want to link in the menu. Even the menu is located in the
+			<em>/content/themes/plattan/partials/header.hbs</em> file. Search
+			after the <em>ul</em> with the <em>main-menu</em> class:
+		</p>
+		<pre>
+	&lt;ul class="main-menu">
+		&lt;li class="menu-item">
+			&lt;a href="{{@blog.url}}">Home&lt;/a>
+		&lt;/li>
+		&lt;li class="menu-item">
+			&lt;a href="{{@blog.url}}/plattan-page-template/">Page template&lt;/a>
+		&lt;/li>
+		&lt;li class="menu-item">
+			&lt;a href="http://www.northemes.com">About&lt;/a>
+		&lt;/li>
+	&lt;/ul>
+		</pre>
+
+		<p>
+			You surely want to provide comment
+			functionality with your blog. We provide our themes with
+			<em>disqus</em>, the amazing comment API. But we want to give you the
+			possibility to decide. So for activating/deactivating comments, open
+			<em>/content/themes/plattan/default.hbs</em> and search for a javascript
+			variable called 'disqus'. Just set activated to false or true and
+			provide your disqus username if you want to show comments.
+		</p>
+
+		<hr>
+
+		<h3 id="htmlStructure"><strong>D) HTML Structure</strong> - <a href="#toc">top</a></h3>
+		<p>
+			<b>Note: </b> Some Mac-users had difficulties to edit the .hbs files
+			in the theme with <em>TextEdit</em>. However, they could properly edit the files
+			with the <em>textwrangler</em> editor.
+		</p>
+
+		<p>
+			To properly change the themes css you have to know a little about
+			the general HTML-structure of the theme.
+			The  fixed sidebar's content is within a div with an
+			class of "sidebar-header", which is divided in two equaly high
+			sections with the class names "first" and "second".
+		</p>
+		<p>
+			All of the information within the main content area is nested within
+			a div with an class of "primary". The general template structure is
+			the same throughout the template. Here is the general structure.
+		</p>
+
+		<p>
+			<img src="assets/images/htmlstructure.png" alt="HTML Structure" />
+		</p>
+
+		<hr>
+
+		<h3 id="scssFiles"><strong>E) SCSS Files and Structure</strong> - <a href="#toc">top</a></h3>
+
+		<p>
+			All the themes CSS is compiled from SASS/SCSS stylesheets. You find
+			them in the <em>/content/themes/plattan/assets/scss</em> directory. The <em>style.scss</em>
+			file is the main file, which gets compiled to the themes
+			<em>style.css</em> file. It includes the underscored files in the
+			same directory, which each handle a separate part of the layout. The
+			names should be self-explaining, however a short overview in
+			including order follows.
+
+			<dl>
+				<dt><em>_settings.scss</em> and <em>_base.scss</em></dt>
+					<dd>
+						They imports some libraries like a reset-stylsheet,
+						basic typography, a grid and utilities. It also defines the main
+						colors of the themes, basic HTML-element styling and
+						some standard css-classes.<br /><br />
+					</dd>
+				<dt><em>_typography.scss</em></dt>
+					<dd>
+						Defines all fonts, typography related mixins and
+						HTML-element styles. Defines even some font-size
+						variables.<br /><br />
+					</dd>
+				<dt><em>_header.scss</em></dt>
+					<dd>
+						Contains the header styles.<br /><br />
+					</dd>
+				<dt><em>_content.scss</em></dt>
+					<dd>
+						Contains the basic content styles for posts and pages.
+						<br /><br />
+					</dd>
+				<dt><em>_post-formats.scss</em></dt>
+					<dd>
+						Extends the content styling with styling for multiple
+						post formats.<br /><br />
+					</dd>
+				<dt><em>_footer.scss</em></dt>
+					<dd>
+						Contains the footer styles.<br /><br />
+					</dd>
+			</dl>
+		</p>
+
+		<p>
+			To compile the SCSS files use your favourite precompiling tool. We
+			use <em>grunt</em> and provide a basic grunt-configuration with the
+			theme. So if you are using <em>grunt</em> you can start right away,
+			after reading the <a href="#grunt">grunt</a> section.
+		</p>
+
+		<hr>
+
+		<h3 id="iconFont"><strong>F) Icon font</strong> - <a href="#toc">top</a></h3>
+		<p>
+			Icon fonts are great and we provide an default one with this
+			theme. Here the available icons with char-codes:
+		</p>
+
+		<pre>
+	$icons: (
+	    'quote' 'a',
+	    'gallery' 'b',
+	    'image' 'c',
+	    'audio' 'd',
+	    'video' 'e',
+	    'pinterest' 'f',
+	    'category' 'g',
+	    'link' 'h',
+	    'comment' 'i',
+	    'facebook' 'j',
+	    'twitter' 'k',
+	    'google' 'l',
+	    'linkedin' 'm',
+	    'github' 'n',
+	    'youtube' 'o',
+	    'dribbble' 'p',
+	    'skype' 'q',
+	    'instagram' 'r',
+	    'stackoverflow' 's',
+	    'tubmlr' 't',
+	    'foursquare' 'u',
+	    'rss' 'v',
+	    'tag' 'w',
+	    'color' 'x',
+	    'wordpress' 'y',
+	    'pin' 'z',
+	    'pen' '\e600',
+	    'menu' '\e601',
+	    'collapse' '\e602'
+	);
+		</pre>
+
+		<p>
+			If you want to replace the icon-font with your own, we used our
+			favourite icon-font generator:
+			<a href="http://icomoon.io/">Icomoon</a>.
+		</p>
+
+		<hr>
+
+		<h3 id="grunt"><strong>F) Use grunt</strong> - <a href="#toc">top</a></h3>
+		<p>
+			This theme provides a basic grunt configuration, as we self use
+			grunt to manage our tasks. The <em>gruntfile.js</em> is locatet in
+			<em>/grunt/gruntfile.js</em>.<br />
+			To setup grunt, go to the grunt directory and run
+<pre>
+npm install --save-dev
+</pre>
+		</p>
+
+		<p>
+			After installing all node modules you can watch your files for changes
+			while you are editing, with a simple <em>grunt watch</em>. Or you
+			compiling them manually by just running <em>grunt</em>.
+		</p>
+		<hr>
+
+		<h3 id="credits"><strong>G) Sources and Credits</strong> - <a href="#toc">top</a></h3>
+
+		<p>We've used the following third party scripts and tools and really tried to don't forget one.
+
+		<ul>
+			<li><a href="http://bourbon.io/" title="bourbon">bourbon</a></li>
+			<li><a href="http://neat.bourbon.io/" title="bourbon-neat">bourbon-neat</a></li>
+			<li><a href="http://gruntjs.com/" title="grunt">grunt</a></li>
+			<li><a href="http://github.com/gruntjs/grunt-contrib-jshint" title="grunt-contrib-jshint">grunt-contrib-jshint</a></li>
+			<li><a href="http://github.com/gruntjs/grunt-contrib-sass" title="grunt-contrib-sass">grunt-contrib-sass</a></li>
+			<li><a href="http://github.com/gruntjs/grunt-contrib-uglify" title="grunt-contrib-uglify">grunt-contrib-uglify</a></li>
+			<li><a href="http://github.com/gruntjs/grunt-contrib-watch" title="grunt-contrib-watch">grunt-contrib-watch</a></li>
+			<li><a href="http://github.com/dylang/grunt-notify" title="grunt-notify">grunt-notify</a></li>
+			<li><a href="http://github.com/sindresorhus/grunt-sass" title="grunt-sass">grunt-sass</a></li>
+			<li><a href="http://jquery.com/" title="JQuery">JQuery</a></li>
+			<li><a href="http://icomoon.io/" title="Icomoon">Icomoon</a></li>
+			<li><a href="http://blog.themeforest.net/site-news/building-better-template-documentation/" title="Themeforest documentation template">Themeforest documentation template</a></li>
+		</ul>
+
+		<hr>
+
+		<p>
+			Once again, thank you so much for purchasing this theme. As said
+			at the beginning, we'd be glad to help you if you have any questions
+			relating to this theme. No guarantees, but we'll do our best to
+			assist. If you have a more general question relating to the themes
+			on ThemeForest, you might consider visiting the forums and asking
+			your question in the "Item Discussion" section.
+		</p>
+
+		<p class="append-bottom alt large"><strong>northemes.com</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>

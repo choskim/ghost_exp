@@ -1,0 +1,70 @@
+{{!< default}}
+{{> header}}
+
+<section class="page-content primary" role="main">
+
+	{{#post}}
+
+		<article id="post-{{id}}" class="post {{post_class}}" role="article" itemscope itemtype="http://schema.org/Article">
+
+			<div class="post-thumbnail">
+		    	{{content words = "0"}}
+		    </div>
+
+		    <div class="content-wrapper">
+			    <h2 class="post-title">
+			    	{{title}}
+			    </h2>
+
+			    <div class="post-meta">
+					Posted
+					<span datetime="{{date format="YYYY-MM-DD"}}" itemprop="datePublished">
+						{{date format='dddd'}}, {{date format='DD MMM'}}
+					</span>
+					{{#if author}}
+						by {{author.name}}
+					{{/if}}
+		            {{#if tags}}
+		            	<div class="post-tags">
+		            		Tags:
+		                    {{#foreach tags}}
+			                    <span class="post-tag">{{name}}</span>,
+		                    {{/foreach}}
+		                </div>
+		            {{/if}}
+				</div>
+
+			    <div class="post-content" itemprop="articleBody">
+
+					{{content}}
+
+				</div>
+
+			    <aside class="post-aside">
+
+					<div id="disqus_thread" class="comments"></div>
+					<script type="text/javascript">//<![CDATA[
+						if ( disqus.activate ) {
+						    var disqus_shortname = disqus.shortname;
+							var disqus_identifier = '{{id}}';
+
+						    /* * * DON'T EDIT BELOW THIS LINE * * */
+						    (function () {
+								var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+								dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+								(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+							}());
+					    }
+					//]]></script>
+
+			    </aside>
+
+			</div>
+
+		</article>
+
+	{{/post}}
+
+	{{> footer}}
+
+</section>

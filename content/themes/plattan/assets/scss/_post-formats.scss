@@ -1,0 +1,74 @@
+/**
+ * SCSS template for post-format styles
+ *
+ * @package Ghost
+ * @subpackage Plattan
+ * @since Plattan 1.0
+ */
+
+.home-template, .archive-template {
+
+	.quote-title {
+		display: none;
+	}
+
+	.tag-format-tweet, .tag-format-quote {
+
+	    h2 {
+	    	display:none;
+	    }
+
+	    .post-content {
+	    	margin-top: 2em;
+	    	font-size: 1.4em;
+	    	font-style: italic;
+	    }
+
+	    p {
+	    	margin-bottom: 0;
+	    }
+
+		.post-meta,
+		.post-continue,
+		.read-more {
+			display:none;
+	    }
+
+	}
+
+	.tag-format-tweet {
+	    @include icon('before', false, 'twitter') {
+	    	background-color: $twitter;
+		};
+
+	    background-color: tint( $twitter, 90% );
+
+	}
+
+	.tag-format-link {
+	    @include icon('before', false, 'link') {
+	    	background-color: $color-1;
+	    }
+	    background-color: tint( $color-1, 90% );
+
+	}
+
+	.tag-format-quote {
+	    @include icon('before', false, 'quote') {
+	    	background-color: $color-2;
+	    }
+	    background-color: tint( $color-2, 90% );
+
+	    .quote-title {
+	    	display: inline;
+	    }
+	}
+
+	.tag-format-link .post-meta {
+		border-color: tint( $color-1, 85% );
+
+		.post-tags {
+			display:none;
+		}
+	}
+}

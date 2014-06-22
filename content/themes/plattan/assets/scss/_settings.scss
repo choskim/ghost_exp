@@ -1,0 +1,260 @@
+/**
+ * SCSS template for the sites settings
+ *
+ * @package Ghost
+ * @subpackage Plattan
+ * @since Plattan 1.0
+ */
+
+/******************************************************************************\
+    Vendor imports
+\******************************************************************************/
+
+@import url("http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700"); // google fonts
+@import "schemes/color-scheme-0";
+@import "vendor/normalize"; // reset html elements
+@import "vendor/bourbon/bourbon"; // mixin library
+@import "vendor/neat/neat-helpers"; // helpers for the grid
+
+/******************************************************************************\
+    Variables
+\******************************************************************************/
+
+// color variables
+$text: $dark;
+$twitter: #00acee;
+
+// typeface variables
+$headings: 'Open Sans Condensed', sans-serif;
+$bodycopy: 'Georgia', Georgia, Times, serif;
+$base-font-size: 16px;
+
+// icon array to give the icons relevant names
+$icons: (
+    'quote' 'a',
+    'gallery' 'b',
+    'image' 'c',
+    'audio' 'd',
+    'video' 'e',
+    'pinterest' 'f',
+    'category' 'g',
+    'link' 'h',
+    'comment' 'i',
+    'facebook' 'j',
+    'twitter' 'k',
+    'google' 'l',
+    'linkedin' 'm',
+    'github' 'n',
+    'youtube' 'o',
+    'dribbble' 'p',
+    'skype' 'q',
+    'instagram' 'r',
+    'stackoverflow' 's',
+    'tubmlr' 't',
+    'foursquare' 'u',
+    'rss' 'v',
+    'tag' 'w',
+    'color' 'x',
+    'Ghost' 'y',
+    'pin' 'z',
+    'pen' '\e600',
+    'menu' '\e601',
+    'collapse' '\e602'
+);
+
+
+/******************************************************************************\
+    Grid settings
+\******************************************************************************/
+
+// Change the grid settings
+$column: 70px;
+$gutter: 0px;
+$grid-columns: 12;
+$max-width: 100em;
+
+$visual-grid: false;
+$visual-grid-index: front;
+
+// Define your breakpoints
+$small: new-breakpoint(min-width 480px);
+$medium: new-breakpoint(min-width 768px);
+$large: new-breakpoint(min-width 1024px);
+$xlarge: new-breakpoint(min-width 1200px);
+
+// Import the grid system
+@import "vendor/neat/neat"; // grid system
+
+
+/******************************************************************************\
+    Includes
+\******************************************************************************/
+
+// include icon font files
+@include font-face('northemes-icons', '../fonts/northemes-icons');
+
+
+/******************************************************************************\
+    Functions
+\******************************************************************************/
+
+// check if name in icon mixin matches name in icon array
+@function match($haystack, $needle) {
+    @each $item in $haystack {
+        $index: index($item, $needle);
+        @if $index {
+            $return: if($index == 1, 2, $index);
+            @return nth($item, $return);
+        }
+    }
+    @return false;
+}
+
+// calculation for rem sizing
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+
+/******************************************************************************\
+    Mixins & placeholders
+\******************************************************************************/
+
+// font icons
+@mixin icon($position: 'before', $styles: true, $icon: false) {
+    &:#{$position} {
+        @if $icon {
+            content: match($icons, $icon);
+        }
+        @if $styles {
+            speak: none;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-transform: none;
+            line-height: 1;
+            font: {
+                style: normal;
+                variant: normal;
+                weight: normal;
+                family: 'northemes-icons';
+            }
+        }
+        @content;
+    }
+}
+
+// rem fallback
+@mixin rem($property, $values...) {
+    $max: length($values);
+    $pxValues: '';
+    $remValues: '';
+
+    @for $i from 1 through $max {
+        $value: strip-unit(nth($values, $i));
+        $pxValues: #{$pxValues + $value*16}px;
+
+        @if $i < $max {
+            $pxValues: #{$pxValues + " "};
+        }
+    }
+
+    @for $i from 1 through $max {
+        $value: strip-unit(nth($values, $i));
+        $remValues: #{$remValues + $value}rem;
+
+        @if $i < $max {
+            $remValues: #{$remValues + " "};
+        }
+    }
+
+    #{$property}: $pxValues;
+    #{$property}: $remValues;
+}
+
+
+%clearul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+/******************************************************************************\
+    Keyframes
+\******************************************************************************/
+
+@include keyframes(bounce-in) {
+    0% { opacity: 0; @include transform(scale(.3)); }
+    50% { opacity: 1; @include transform(scale(1.05)); }
+    70% { @include transform(scale(.9)); }
+    100% { @include transform(scale(1)); opacity: 1; }
+}
+
+@include keyframes(colorflow) {
+    0% {
+        color: #fff;
+        line-height: 2.5em;
+    }
+
+    49% {
+        color: transparent;
+        line-height: 3.5em;
+    }
+
+    51% {
+        color: transparent;
+        line-height: 1.5em;
+    }
+
+    100% {
+        color: #fff;
+        line-height: 2.5em;
+    }
+}
+
+@include keyframes(fadeText) {
+    0% {
+        opacity: 0;
+        font-size: 0.5em;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        font-size: 1.5em;
+        width: 5em;
+        height: 5em;
+        line-height: 5em;
+        margin: -2.5em 0 0 -2.5em;
+    }
+}
+
+@include keyframes(slide-in) {
+    0% { opacity: 0; right: 200px; }
+    100% { opacity: 1; right: 30px }
+}
+
+@include keyframes(slide-in-tablet) {
+    0% { opacity: 0; left: -200px; }
+    100% { opacity: 1; left: 30px }
+}
+
+@include keyframes(bounce-in-up) {
+    0% { opacity: 0; @include transform(translateY(2000px)); }
+    60% { opacity: 1; @include transform(translateY(-30px)); }
+    80% { @include transform(translateY(10px)); }
+    100% { @include transform(translateY(0)); opacity: 1; }
+}
+
+@include keyframes(slide-in-menu) {
+    0% { opacity: 0; margin-top: 20px; }
+    100% { opacity: 1; margin-top: 0px; }
+}
+
+@include keyframes(flip-in-y) {
+    0% { @include transform(perspective(400px) rotateY(90deg)); opacity: 0; }
+    40% { @include transform(perspective(400px) rotateY(-10deg)); }
+    70% { @include transform(perspective(400px) rotateY(10deg)); }
+    100% { @include transform(perspective(400px) rotateY(0deg)); opacity: 1; }
+}

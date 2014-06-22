@@ -1,0 +1,58 @@
+{{!< default}}
+{{> header}}
+
+	<section class="page-content primary" role="main">
+		{{#foreach posts}}
+
+			<article id="post-{{id}}" class="post {{post_class}}" role="article" itemscope itemtype="http://schema.org/Article">
+
+			    {{content words = "0"}}
+
+			    <div class="content-wrapper">
+				    <h2 class="post-title">
+						<a href="{{{url}}}" rel="bookmark">
+				    		{{title}}
+				    	</a>
+				    </h2>
+
+				    <div class="post-meta">
+						Posted
+						<span datetime="{{date format="YYYY-MM-DD"}}" itemprop="datePublished">
+							{{date format='dddd'}}, {{date format='DD MMM'}}
+						</span>
+						{{#if author}}
+							by {{author.name}}
+						{{/if}}
+		                {{#if tags}}
+		                	<div class="post-tags">
+		                		Tags:
+			                    {{tags seperator=", "}}
+			                </div>
+		                {{/if}}
+					</div>
+
+				    <div class="post-content" itemprop="articleBody">
+
+						<p>
+							{{excerpt words="80"}} <span class="post-continue">&hellip;</span>
+							<b class="quote-title"><br /> - {{title}}</b>
+						</p>
+
+						<a class="read-more" href="{{{url}}}">Read more</a>
+
+					</div>
+
+				</div>
+
+			</article>
+
+		{{/foreach}}
+
+	    {{#if pagination}}
+			<div class="pagination" role="pagination">
+				{{{pagination}}}
+			</div>
+	    {{/if}}
+
+	    {{> footer}}
+	</section>

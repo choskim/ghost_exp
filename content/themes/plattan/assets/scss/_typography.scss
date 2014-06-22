@@ -1,0 +1,48 @@
+/**
+ * SCSS template base typography styles
+ *
+ * @package Ghost
+ * @subpackage Plattan
+ * @since Plattan 1.0
+ */
+
+body {
+    font-family: $bodycopy;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+}
+
+p {
+    @include rem(margin, 0, 0, 1, 0);
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+    -moz-font-feature-settings: "liga=1, dlig=1, onum=1";
+    -moz-font-feature-settings: "liga", "dlig", "onum";
+    -ms-font-feature-settings: "liga", "dlig", "onum";
+    -webkit-font-feature-settings: "liga", "dlig", "onum";
+    -o-font-feature-settings: "liga", "dlig", "onum";
+    font-feature-settings: "liga", "dlig", "onum";
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $headings;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+h1, .h1 {
+    font-size: 2.6em;
+}
+
+h2, .h2 {
+    font-size: 2.3em;
+}
+
+h3, .h3 {
+    font-size: 1.15em;
+}
+
+h4, h5, h6 {
+    font-size: 1em;
+}

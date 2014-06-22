@@ -1,0 +1,13 @@
+{
+  "name": "starter",
+  "version": "1.0.0",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.4.3",
+    "grunt-contrib-uglify": "~0.2.5",
+    "matchdep": "~0.1.2",
+    "grunt-notify": "~0.2.14",
+    "grunt-sass": "~0.8.1",
+    "grunt-contrib-jshint": "~0.7.2"
+  }
+}
